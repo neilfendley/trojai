@@ -171,7 +171,7 @@ class ClassicExperiment:
             fname_only = os.path.basename(f)
             # search for the filename in the original data to get the true label associated with this file
             clean_data_assoc_label_series = clean_df[clean_df['filename_only'] == fname_only]['true_label']
-            clean_df.at[clean_data_assoc_label_series.index, 'remove'] = True
+            clean_df.at[clean_data_assoc_label_series.index[0], 'remove'] = True
             if len(clean_data_assoc_label_series) > 1:
                 raise ValueError("Multiple filenames match - duplication detected for " + str(fname_only) + "!")
             if len(clean_data_assoc_label_series) == 0:
